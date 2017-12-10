@@ -1,0 +1,23 @@
+/* For every even numbered element, have a light yellow background.
+For every odd numbered element, have a light blue background. */
+body {
+    background-color: green;
+}
+#allPeople {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
+#allPeople > div {
+    border: 5px dotted red;
+    text-align: center;
+}
+
+/* #allPeople:nth-child(even) {
+    background-color: lightyellow; 
+} */
+/* 
+#allPeople:nth-child(odd) {
+    background-color: lightblue; 
+} */
