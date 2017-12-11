@@ -10,14 +10,17 @@ body {
     grid-row-gap: 1em;
 }
 #allPeople > div {
-    border: 5px dotted red;
     text-align: center;
 }
 
-/* #allPeople:nth-child(even) {
+.clicked {
+border: 5px dotted red;
+}
+
+#allPeople > div:nth-child(even) {
     background-color: lightyellow; 
-} */
-/* 
-#allPeople:nth-child(odd) {
-    background-color: lightblue; 
-} */
+}
+
+#allPeople > div:nth-child(odd) {
+    background-color: lightblue;
+}

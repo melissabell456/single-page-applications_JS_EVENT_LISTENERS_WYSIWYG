@@ -41,12 +41,12 @@ let characters = [
 }
 ];
 
-// characters[i].addEventListener("click", changeDisplay);
+let userInputField = document.getElementById("inputField");
 let pplBox = document.getElementById("allPeople");
 
 for (let i = 0; i < characters.length; i++) {
     let personBox = document.createElement("div");
-    personBox.setAttribute("class", "person" + [i]);
+    personBox.setAttribute("class", "person");
     pplBox.appendChild(personBox);
     // add h2 to DOM for title with text
     let charTitleField = document.createElement("h2");
@@ -72,9 +72,18 @@ for (let i = 0; i < characters.length; i++) {
     personBox.appendChild(charLifeSpanField);
     let charLifeSpanContent = document.createTextNode(characters[i].lifespan.birth + " - " + characters[i].lifespan.death);
     charLifeSpanField.appendChild(charLifeSpanContent);
+    personBox.addEventListener("click", function() {
+        personBox.classList.toggle("clicked");
+        userInputField.focus();
+        userInputField.addEventListener("input", function () {
+        charBioField.innerText = userInputField.value;
+        });
+    });
 }
 
-// 2 When you click on one of the person elements, a dotted border should appear around it.
-// 3 When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
-// 4 When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
-// 5 When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
+userInputField.addEventListener("keydown", function(event) {
+    if (event.key === "Enter"){
+        userInputField.value = " ";
+    };
+})
+
